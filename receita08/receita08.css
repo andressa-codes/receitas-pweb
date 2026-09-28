@@ -1,0 +1,39 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+table {
+  border-collapse: collapse;
+  width: 800px;
+  margin-top: 20px;
+}
+th,
+td {
+  border: 1px solid black;
+  padding: 10px;
+  text-align: center;
+}
+
+th {
+  background-color: #3d251e;
+  color: white;
+}
+
+td {
+  background-color:#f5f4d7;
+}
+
+button {
+    all: unset;
+    background-color: #f5f4d7;
+    color: #3d251e;
+    width: 200px;
+    height: 50px;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 8px;
+    border: 2px solid #3d251e;
+    box-shadow: 0 7px 0 #3d251e;
+}

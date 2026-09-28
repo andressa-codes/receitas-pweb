@@ -1,0 +1,72 @@
+<!-- RECEITA 4 MODIFICADA DE ACORDO COM A QUESTÃO 3 -->
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+
+  <body>
+    <div id="original">
+      <a href="#" id="btnCarregar">Carregar sorvetes</a>
+    </div>
+    <div id="ordenadas">
+      <a href="#" id="btnOrdenar">Carregar sorvetes ordenados</a>
+    </div>
+    <div id="embaralhadas">
+      <a href="#" id="btnEmbaralhar">Carregar sorvetes embaralhados</a>
+    </div>
+    <link rel="stylesheet" href="receita05.css" />
+  </body>
+
+  <script>
+    let sorvetes = ["Chocolate", "Morango", "Baunilha"];
+    let ordenados = [...sorvetes].sort();
+    let embaralhados = [...sorvetes].sort(() => Math.random() - 0.5);
+
+    const transformar = (item) => {
+      return `<tr><td>${item}</td></tr>`;
+    };
+
+    const carregar = () => {
+      let div = document.getElementById("original");
+      let html = sorvetes.map(transformar).join("");
+      div.innerHTML = `
+        <table class="sorvetes">
+          <tr><th>Sorvetes</th></tr>
+          ${html}
+        </table>
+      `;
+    };
+
+    const ordenar = () => {
+      let div = document.getElementById("ordenadas");
+      let html = ordenados.map(transformar).join("");
+      div.innerHTML = `
+        <table class="sorvetes">
+          <tr><th>Sorvetes</th></tr>
+          ${html}
+        </table>
+      `;
+    };
+
+    const embaralhar = () => {
+      let div = document.getElementById("embaralhadas");
+      let html = embaralhados.map(transformar).join("");
+      div.innerHTML = `
+        <table class="sorvetes">
+          <tr><th>Sorvetes</th></tr>
+          ${html}
+        </table>
+      `;
+    };
+
+    const adicionarEvento = (id, funcao) => {
+      let link = document.getElementById(id);
+      link.addEventListener("click", funcao);
+    };
+
+    adicionarEvento("btnCarregar", carregar);
+    adicionarEvento("btnOrdenar", ordenar);
+    adicionarEvento("btnEmbaralhar", embaralhar);
+  </script>
+</html>

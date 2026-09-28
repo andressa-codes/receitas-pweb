@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <div id="cerveja"></div>
+    <div id="meu amor">
+      <button id="botaoCarregar">Carregar cerveja</button>
+    </div>
+  </body>
+  <script>
+    function carregarDiv() {
+      let div = document.getElementById("cerveja");
+      div.innerHTML = `<h1>Guinness</h1>`;
+      botao.removeEventListener("click", carregarDiv);
+      botao.addEventListener("click", deletarDiv);
+    }
+    function deletarDiv() {
+      let div = document.getElementById("cerveja");
+      div.innerHTML = "";
+      botao.removeEventListener("click", deletarDiv);
+      botao.addEventListener("click", carregarDiv);
+    }
+    let botao = document.getElementById("botaoCarregar");
+    botao.addEventListener("click", carregarDiv);
+  </script>
+</html>

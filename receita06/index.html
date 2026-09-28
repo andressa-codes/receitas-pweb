@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="receita06.css" />
+  </head>
+
+  <body>
+    <div>
+      <button id="botaoCarregar">Carregando cervejas...</button>
+    </div>
+
+    <div id="cervejasDiv"></div>
+  </body>
+
+  <script>
+    let cervejas = [
+      {
+        name: "Guiness",
+        alcohol: "10%",
+        style: "Imperial Stout",
+        ibu: "50",
+      },
+      {
+        name: "Desperados",
+        alcohol: "6%",
+        style: "Lager",
+        ibu: "20",
+      },
+      {
+        name: "Becks",
+        alcohol: "5%",
+        style: "Pilsen",
+        ibu: "15",
+      },
+    ];
+
+    const carregarDiv = (
+      cs,
+      elementoid = "cervejasDiv",
+      cabecalhos = ["Nome", "Álcool", "Estilo", "Amargor"],
+      propriedades = ["name", "alcohol", "style", "ibu"],
+    ) => {
+      const div = document.getElementById(elementoid);
+
+      const cabecalhosHtml = cabecalhos.map(
+        (cabecalho) => `<th>${cabecalho}</th>`,
+      );
+
+      const itensHtml = cs.map(
+        (objeto) =>
+          `<tr>
+            ${propriedades
+              .map((propriedade) => `<td>${objeto[propriedade]}</td>`)
+              .join("\n")}
+          </tr>`,
+      );
+
+      div.innerHTML = `<table>
+        <tr>
+          ${cabecalhosHtml.join("\n")}
+        </tr>
+        ${itensHtml.join("\n")}
+      </table>`;
+    };
+
+    let botao = document.getElementById("botaoCarregar");
+    botao.addEventListener("click", () => carregarDiv(cervejas));
+  </script>
+</html>
+

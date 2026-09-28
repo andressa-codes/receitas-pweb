@@ -1,0 +1,18 @@
+
+table {
+    border-collapse: collapse;
+    margin-right: 5px;
+}
+th, td {
+    border: 1px solid black;
+    padding: 5px;
+}
+th {
+    background-color: palevioletred;
+}
+td{
+    background-color: rgb(227, 166, 186) ;
+}
+.tabelas{
+    display: flex;
+}
